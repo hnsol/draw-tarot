@@ -53,6 +53,11 @@ body {
   color: #1d1308;
 }
 
+.app.has-result .language-switch {
+  position: static;
+  justify-content: flex-end;
+}
+
 .stage {
   position: relative;
   min-height: min(680px, calc(100vh - 120px));
@@ -354,11 +359,6 @@ button:disabled {
   .language-switch {
     top: 8px;
     right: 8px;
-  }
-
-  .app.has-result .language-switch {
-    position: static;
-    justify-content: flex-end;
   }
 
   .language-switch__button {
