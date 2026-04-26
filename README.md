@@ -10,11 +10,10 @@
 
 ## Screenshot
 
-<!--
-あとで画面スクリーンショットをここに配置します。
-例:
-![Draw Tarot の画面](docs/screenshot.png)
--->
+<p>
+  <img src="images/screenshot_01.jpg" alt="Draw Tarot の初期画面" width="48%">
+  <img src="images/screenshot_02.jpg" alt="Draw Tarot の結果画面" width="48%">
+</p>
 
 ## 使い方
 
@@ -47,10 +46,6 @@ npm test
 - 使用データ: 各SVGファイルページの Media Viewer から取得した、オリジナルサイズのJPG画像です。
 - 参照例: [RWS Tarot 17 Star.svg](https://commons.wikimedia.org/wiki/File:RWS_Tarot_17_Star.svg)
 - 詳細: 各画像の来歴は、Wikimedia Commons の個別ページを参照してください。
-
-Wikimedia Commons 上の表記例:
-
-> By Pamela Colman Smith - http://muzendo.jp/blog/, Public Domain, https://commons.wikimedia.org/w/index.php?curid=114011116
 
 ## ライセンス
 
