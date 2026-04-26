@@ -61,12 +61,14 @@ assert.match(css, /\.deck-area\s*{[\s\S]*min-height:\s*min\(460px,\s*58svh\)/);
 assert.match(css, /\.result\s*{[\s\S]*min-height:\s*auto/);
 assert.match(css, /height:\s*min\(620px,\s*76svh\)/);
 assert.match(css, /\.card\.drawn\s*{[\s\S]*translate\(0,\s*56px\)/);
+assert.match(css, /\.card\.drawn\s*{[\s\S]*transition:\s*transform\s*\.9s\s*cubic-bezier\(\.65,\s*0,\s*1,\s*\.8\)/);
 
 const script = readText("script.js");
 assert.match(script, /function cutDeck/);
 assert.match(script, /上下入れ替え/);
 assert.match(script, /renderMeaning/);
 assert.match(script, /resultEl\.classList\.add\("revealed"\)[\s\S]*selectedEl\.classList\.add\("drawn"\)/);
+assert.match(script, /await sleep\(360\);[\s\S]*scrollIntoView/);
 assert.match(script, /scrollIntoView\(\{\s*behavior:\s*"smooth",\s*block:\s*"start"\s*\}\)/);
 assert.doesNotMatch(script, /await sleep\(650\);[\s\S]*scrollIntoView/);
 assert.doesNotMatch(script, /cutMark/);

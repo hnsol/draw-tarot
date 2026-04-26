@@ -89,6 +89,7 @@ body {
 .card.drawn {
   z-index: 120;
   transform: translate(0, 56px) rotate(0deg) scale(1.08);
+  transition: transform .9s cubic-bezier(.65, 0, 1, .8), opacity .35s ease;
 }
 
 .result img {

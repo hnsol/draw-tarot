@@ -101,9 +101,9 @@ async function draw() {
   resultEl.classList.add("revealed");
   appEl.classList.add("has-result");
   selectedEl.classList.add("drawn");
-  await sleep(250);
+  await sleep(360);
   resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
-  await sleep(400);
+  await sleep(520);
   statusEl.textContent = `${selected.number}. ${selected.name}`;
   drawButton.disabled = false;
 }
