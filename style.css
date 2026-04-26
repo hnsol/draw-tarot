@@ -200,9 +200,12 @@ button:disabled {
 }
 
 #status {
-  min-width: 180px;
   margin: 0;
   color: #c9beb0;
+}
+
+#status:empty {
+  display: none;
 }
 
 .meaning {
@@ -259,7 +262,7 @@ button:disabled {
     max-height: 100svh;
     padding: 6px;
     align-content: start;
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-rows: minmax(0, calc(100svh - 70px)) auto;
     gap: 8px;
     overflow: hidden;
   }
@@ -276,7 +279,7 @@ button:disabled {
   }
 
   .deck-area {
-    min-height: min(460px, 58svh);
+    min-height: min(440px, 56svh);
     overflow: hidden;
   }
 
@@ -296,6 +299,7 @@ button:disabled {
   .controls {
     gap: 10px;
     padding-top: 0;
+    padding-bottom: 6px;
   }
 
   .prompt-note {
