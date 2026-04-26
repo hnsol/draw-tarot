@@ -276,13 +276,12 @@ button:disabled {
   }
 
   .app {
-    height: 100svh;
-    max-height: 100svh;
-    padding: 6px;
+    min-height: 100svh;
+    padding: 6px 6px max(10px, env(safe-area-inset-bottom));
     align-content: start;
-    grid-template-rows: minmax(0, calc(100svh - 96px)) auto;
-    gap: 8px;
-    overflow: hidden;
+    grid-template-rows: auto auto;
+    gap: 4px;
+    overflow: visible;
   }
 
   .app.has-result {
@@ -297,12 +296,12 @@ button:disabled {
   }
 
   .deck-area {
-    min-height: min(390px, 49svh);
+    min-height: min(350px, 44svh);
     overflow: hidden;
   }
 
   .deck {
-    width: min(190px, 50vw);
+    width: min(178px, 47vw);
   }
 
   .card.drawn {
@@ -317,7 +316,7 @@ button:disabled {
   .controls {
     gap: 10px;
     padding-top: 0;
-    padding-bottom: 6px;
+    padding-bottom: 0;
   }
 
   .prompt-note {
