@@ -60,7 +60,7 @@ assert.match(css, /max-height:\s*100svh/);
 assert.match(css, /\.deck-area\s*{[\s\S]*min-height:\s*min\(460px,\s*58svh\)/);
 assert.match(css, /\.result\s*{[\s\S]*min-height:\s*auto/);
 assert.match(css, /height:\s*min\(620px,\s*76svh\)/);
-assert.match(css, /\.card\.drawn\s*{[\s\S]*translate\(0,\s*56px\)/);
+assert.match(css, /\.card\.drawn\s*{[\s\S]*translate\(0,\s*140px\)/);
 assert.match(css, /\.card\.drawn\s*{[\s\S]*transition:\s*transform\s*\.9s\s*cubic-bezier\(\.65,\s*0,\s*1,\s*\.8\)/);
 
 const script = readText("script.js");
