@@ -44,9 +44,9 @@ assert.match(css, /z-index:\s*120/);
 assert.match(css, /@media\s*\(max-width:\s*820px\)/);
 assert.match(css, /grid-template-rows:\s*minmax\(0,\s*1fr\)\s*auto/);
 assert.match(css, /max-height:\s*100svh/);
-assert.match(css, /min-height:\s*22svh/);
-assert.match(css, /height:\s*52svh/);
-assert.match(css, /width:\s*min\(300px,\s*76vw\)/);
+assert.match(css, /min-height:\s*16svh/);
+assert.match(css, /height:\s*62svh/);
+assert.match(css, /width:\s*min\(360px,\s*92vw\)/);
 
 const script = readText("script.js");
 assert.match(script, /function cutDeck/);

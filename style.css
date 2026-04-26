@@ -176,7 +176,7 @@ button:disabled {
   .app {
     height: 100svh;
     max-height: 100svh;
-    padding: 10px;
+    padding: 6px;
     align-content: start;
     grid-template-rows: minmax(0, 1fr) auto;
     gap: 8px;
@@ -185,28 +185,28 @@ button:disabled {
 
   .stage {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, .62fr) minmax(0, 1.38fr);
-    gap: 4px;
+    grid-template-rows: minmax(0, .42fr) minmax(0, 1.58fr);
+    gap: 2px;
     min-height: 0;
   }
 
   .deck-area,
   .result {
-    min-height: 22svh;
+    min-height: 16svh;
     overflow: hidden;
   }
 
   .deck {
-    width: min(132px, 36vw);
+    width: min(112px, 30vw);
   }
 
   .card.drawn {
-    transform: translate(0, 23svh) rotate(0deg) scale(1.02);
+    transform: translate(0, 18svh) rotate(0deg) scale(1.02);
   }
 
   .result img {
-    width: min(300px, 76vw);
-    height: 52svh;
+    width: min(360px, 92vw);
+    height: 62svh;
   }
 
   .controls {
@@ -216,7 +216,7 @@ button:disabled {
 
   label,
   #status {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   button {
