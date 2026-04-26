@@ -276,8 +276,8 @@ button:disabled {
   }
 
   .app {
-    height: 100dvh;
-    max-height: 100dvh;
+    height: 90dvh;
+    max-height: 90dvh;
     padding: 42px 8px max(10px, env(safe-area-inset-bottom));
     align-content: start;
     grid-template-rows: minmax(0, 1fr) auto;
