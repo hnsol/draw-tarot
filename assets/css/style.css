@@ -203,15 +203,6 @@ button:disabled {
   opacity: .72;
 }
 
-#status {
-  margin: 0;
-  color: #c9beb0;
-}
-
-#status:empty {
-  display: none;
-}
-
 .meaning {
   width: min(760px, 100%);
   margin: 8px auto 40px;
@@ -317,8 +308,7 @@ button:disabled {
     margin-bottom: 4px;
   }
 
-  label,
-  #status {
+  label {
     font-size: 13px;
   }
 

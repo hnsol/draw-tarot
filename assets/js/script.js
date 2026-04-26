@@ -34,7 +34,6 @@ const resultEl = document.querySelector("#result");
 const resultImage = document.querySelector("#resultImage");
 const pickNumber = document.querySelector("#pickNumber");
 const drawButton = document.querySelector("#drawButton");
-const statusEl = document.querySelector("#status");
 const appEl = document.querySelector(".app");
 const promptNote = document.querySelector("#promptNote");
 const meaningSection = document.querySelector("#meaningSection");
@@ -122,7 +121,6 @@ async function draw() {
   meaningSection.hidden = true;
   resultEl.classList.remove("revealed");
   deckEl.classList.remove("cutting", "settled");
-  statusEl.textContent = "シャッフル中";
 
   deck = shuffle(cards);
   renderDeck();
@@ -132,7 +130,6 @@ async function draw() {
   deckEl.classList.remove("shuffling");
 
   const cutIndex = 1 + Math.floor(Math.random() * (deck.length - 1));
-  statusEl.textContent = `カット: ${cutIndex}枚目で上下入れ替え`;
   renderDeck(cutIndex);
   deckEl.classList.add("cutting");
   await sleep(900);
@@ -146,7 +143,6 @@ async function draw() {
   const selected = deck[nth - 1];
   const selectedEl = [...deckEl.children][nth - 1];
 
-  statusEl.textContent = `上から${nth}番目`;
   resultImage.src = selected.image;
   resultImage.alt = `${selected.number}. ${selected.name}`;
   renderMeaning(selected);
@@ -158,7 +154,6 @@ async function draw() {
   deck = deck.filter((_, i) => i !== nth - 1);
   renderDeck();
   deckEl.classList.add("settled");
-  statusEl.textContent = `${selected.number}. ${selected.name}`;
   drawButton.disabled = false;
 }
 

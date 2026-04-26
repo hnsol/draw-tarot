@@ -63,7 +63,7 @@ assert.match(html, /src="assets\/js\/card-meanings\.js"[\s\S]*src="assets\/js\/s
 assert.match(html, /src="assets\/js\/script\.js"/);
 assert.match(html, /id="meaningSection"/);
 assert.match(html, /id="promptNote"/);
-assert.match(html, /id="status"\s+aria-live="polite"><\/p>/);
+assert.doesNotMatch(html, /id="status"/);
 assert.doesNotMatch(html, /大アルカナ22枚/);
 assert.match(html, /class="prompt-note"/);
 assert.match(html, /class="prompt-note__example">問いの例/);
@@ -98,7 +98,7 @@ assert.match(css, /\.app\.has-result/);
 assert.match(css, /@media\s*\(max-width:\s*820px\)/);
 assert.match(css, /grid-template-rows:\s*minmax\(0,\s*calc\(100svh\s*-\s*70px\)\)\s*auto/);
 assert.match(css, /max-height:\s*100svh/);
-assert.match(css, /#status:empty\s*{[\s\S]*display:\s*none/);
+assert.doesNotMatch(css, /#status/);
 assert.match(css, /\.deck-area\s*{[\s\S]*min-height:\s*min\(440px,\s*56svh\)/);
 assert.match(css, /\.result\s*{[\s\S]*min-height:\s*auto/);
 assert.match(css, /width:\s*min\(340px,\s*90vw,\s*calc\(76svh\s*\*\s*3\s*\/\s*5\)\)/);
@@ -109,7 +109,7 @@ assert.match(css, /\.card\.drawn\s*{[\s\S]*transition:\s*transform\s*\.9s\s*cubi
 
 const script = readText("assets/js/script.js");
 assert.match(script, /function cutDeck/);
-assert.match(script, /上下入れ替え/);
+assert.doesNotMatch(script, /statusEl|#status/);
 assert.match(script, /renderMeaning/);
 assert.match(script, /RWS_Tarot_19_Sun\.jpg/);
 assert.match(script, /assets\/images\/card-back\.jpg/);
