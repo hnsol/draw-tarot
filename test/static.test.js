@@ -60,7 +60,7 @@ assert.match(css, /max-height:\s*100svh/);
 assert.match(css, /\.deck-area\s*{[\s\S]*min-height:\s*min\(460px,\s*58svh\)/);
 assert.match(css, /\.result\s*{[\s\S]*min-height:\s*auto/);
 assert.match(css, /height:\s*min\(620px,\s*76svh\)/);
-assert.match(css, /\.card\.drawn\s*{[\s\S]*translate\(0,\s*28px\)/);
+assert.match(css, /\.card\.drawn\s*{[\s\S]*translate\(0,\s*56px\)/);
 
 const script = readText("script.js");
 assert.match(script, /function cutDeck/);
@@ -74,11 +74,17 @@ const sandbox = { window: {} };
 vm.runInNewContext(meaningCode, sandbox);
 assert.equal(sandbox.window.cardMeanings.length, 22);
 for (const meaning of sandbox.window.cardMeanings) {
+  assert.equal(typeof meaning.number, "number");
+  assert.equal(typeof meaning.name, "string");
   assert.equal(typeof meaning.imageDescription, "string");
   assert.equal(typeof meaning.positiveKeywords, "string");
   assert.equal(typeof meaning.negativeKeywords, "string");
   assert.equal(typeof meaning.treeOfLife, "string");
 }
+sandbox.window.cardMeanings.forEach((meaning, index) => {
+  assert.equal(meaning.number, index);
+});
+assert.equal(sandbox.window.cardMeanings[13].name, "死神");
 
 execFileSync("node", ["--check", path.join(root, "card-meanings.js")], { stdio: "pipe" });
 execFileSync("node", ["--check", path.join(root, "script.js")], { stdio: "pipe" });

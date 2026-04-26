@@ -88,7 +88,7 @@ body {
 
 .card.drawn {
   z-index: 120;
-  transform: translate(0, 28px) rotate(0deg) scale(1.08);
+  transform: translate(0, 56px) rotate(0deg) scale(1.08);
 }
 
 .result img {
@@ -242,7 +242,7 @@ button:disabled {
   }
 
   .card.drawn {
-    transform: translate(0, 28px) rotate(0deg) scale(1.04);
+    transform: translate(0, 56px) rotate(0deg) scale(1.04);
   }
 
   .result img {

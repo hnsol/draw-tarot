@@ -1,13 +1,7 @@
-const names = [
-  "愚者", "魔術師", "女教皇", "女帝", "皇帝", "教皇", "恋人", "戦車",
-  "力", "隠者", "運命の輪", "正義", "吊された男", "死神", "節制",
-  "悪魔", "塔", "星", "月", "太陽", "審判", "世界"
-];
-
-const cards = names.map((name, index) => ({
+const cards = window.cardMeanings.map(({ name, number }) => ({
   name,
-  number: index,
-  image: `images/majorarcana_${String(index).padStart(2, "0")}.jpg`
+  number,
+  image: `images/majorarcana_${String(number).padStart(2, "0")}.jpg`
 }));
 
 const deckEl = document.querySelector("#deck");
