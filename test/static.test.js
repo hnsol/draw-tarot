@@ -57,14 +57,16 @@ assert.match(css, /\.app\.has-result/);
 assert.match(css, /@media\s*\(max-width:\s*820px\)/);
 assert.match(css, /grid-template-rows:\s*minmax\(0,\s*1fr\)\s*auto/);
 assert.match(css, /max-height:\s*100svh/);
-assert.match(css, /\.deck-area\s*{[\s\S]*min-height:\s*min\(520px,\s*68svh\)/);
+assert.match(css, /\.deck-area\s*{[\s\S]*min-height:\s*min\(460px,\s*58svh\)/);
 assert.match(css, /\.result\s*{[\s\S]*min-height:\s*auto/);
 assert.match(css, /height:\s*min\(620px,\s*76svh\)/);
+assert.match(css, /\.card\.drawn\s*{[\s\S]*translate\(0,\s*28px\)/);
 
 const script = readText("script.js");
 assert.match(script, /function cutDeck/);
 assert.match(script, /上下入れ替え/);
 assert.match(script, /renderMeaning/);
+assert.match(script, /scrollIntoView\(\{\s*behavior:\s*"smooth",\s*block:\s*"start"\s*\}\)/);
 assert.doesNotMatch(script, /cutMark/);
 
 const meaningCode = readText("card-meanings.js");

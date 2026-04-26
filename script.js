@@ -110,6 +110,8 @@ async function draw() {
   renderMeaning(selected);
   resultEl.classList.add("revealed");
   appEl.classList.add("has-result");
+  await sleep(150);
+  resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
   drawButton.disabled = false;
 }
 
