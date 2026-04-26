@@ -204,7 +204,8 @@ label {
 }
 
 input,
-button {
+button,
+.wiki-link {
   height: 44px;
   border: 1px solid rgba(255, 255, 255, .22);
   border-radius: 8px;
@@ -229,6 +230,18 @@ button {
 button:disabled {
   cursor: wait;
   opacity: .72;
+}
+
+.wiki-link {
+  width: fit-content;
+  margin-top: 18px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(215, 163, 75, .16);
+  color: #f2c36b;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .meaning {

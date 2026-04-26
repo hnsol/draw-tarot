@@ -44,6 +44,7 @@ const translations = {
     sectionPositive: "ポジティブなキーワード",
     sectionNegative: "ネガティブなキーワード",
     sectionTree: "生命の樹での位置づけ",
+    wikiLink: "詳しくはこちら：Wikiで読む",
     promptAria: "カードを引く前の問い"
   },
   en: {
@@ -59,9 +60,35 @@ const translations = {
     sectionPositive: "Positive Keywords",
     sectionNegative: "Negative Keywords",
     sectionTree: "Tree of Life Position",
+    wikiLink: "Read more in the Wiki",
     promptAria: "Question before drawing a card"
   }
 };
+
+const wikiPages = [
+  "00-Fool",
+  "01-Magician",
+  "02-High-Priestess",
+  "03-Empress",
+  "04-Emperor",
+  "05-Hierophant",
+  "06-Lovers",
+  "07-Chariot",
+  "08-Strength",
+  "09-Hermit",
+  "10-Wheel-of-Fortune",
+  "11-Justice",
+  "12-Hanged-Man",
+  "13-Death",
+  "14-Temperance",
+  "15-Devil",
+  "16-Tower",
+  "17-Star",
+  "18-Moon",
+  "19-Sun",
+  "20-Judgement",
+  "21-World"
+];
 
 const deckEl = document.querySelector("#deck");
 const resultEl = document.querySelector("#result");
@@ -76,6 +103,7 @@ const meaningImage = document.querySelector("#meaningImage");
 const meaningPositive = document.querySelector("#meaningPositive");
 const meaningNegative = document.querySelector("#meaningNegative");
 const meaningTree = document.querySelector("#meaningTree");
+const wikiLink = document.querySelector("#wikiLink");
 const languageButtons = document.querySelectorAll("[data-lang]");
 const translatableEls = document.querySelectorAll("[data-i18n]");
 
@@ -154,6 +182,7 @@ function renderMeaning(card) {
   meaningPositive.textContent = meaning.positiveKeywords;
   meaningNegative.textContent = meaning.negativeKeywords;
   meaningTree.textContent = meaning.treeOfLife;
+  wikiLink.href = `https://github.com/hnsol/draw-tarot/wiki/${wikiPages[card.number]}`;
   meaningSection.hidden = false;
 }
 
