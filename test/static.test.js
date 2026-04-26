@@ -96,8 +96,11 @@ assert.match(script, /renderMeaning/);
 assert.match(script, /RWS_Tarot_19_Sun\.jpg/);
 assert.match(script, /Waite–Smith_Tarot_Roses_and_Lilies_cropped\.jpg/);
 assert.match(script, /resultEl\.classList\.add\("revealed"\)[\s\S]*selectedEl\.classList\.add\("drawn"\)/);
-assert.match(script, /await sleep\(480\);[\s\S]*scrollIntoView/);
-assert.match(script, /scrollIntoView\(\{\s*behavior:\s*"smooth",\s*block:\s*"start"\s*\}\)/);
+assert.match(script, /function easeOutCubic/);
+assert.match(script, /function scrollToResult/);
+assert.match(script, /requestAnimationFrame\(step\)/);
+assert.match(script, /await sleep\(480\);[\s\S]*scrollToResult\(\)/);
+assert.doesNotMatch(script, /scrollIntoView/);
 assert.doesNotMatch(script, /await sleep\(650\);[\s\S]*scrollIntoView/);
 assert.doesNotMatch(script, /cutMark/);
 
