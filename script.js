@@ -1,7 +1,32 @@
+const imageFiles = [
+  "RWS_Tarot_00_Fool.jpg",
+  "RWS_Tarot_01_Magician.jpg",
+  "RWS_Tarot_02_High_Priestess.jpg",
+  "RWS_Tarot_03_Empress.jpg",
+  "RWS_Tarot_04_Emperor.jpg",
+  "RWS_Tarot_05_Hierophant.jpg",
+  "RWS_Tarot_06_Lovers.jpg",
+  "RWS_Tarot_07_Chariot.jpg",
+  "RWS_Tarot_08_Strength.jpg",
+  "RWS_Tarot_09_Hermit.jpg",
+  "RWS_Tarot_10_Wheel_of_Fortune.jpg",
+  "RWS_Tarot_11_Justice.jpg",
+  "RWS_Tarot_12_Hanged_Man.jpg",
+  "RWS_Tarot_13_Death.jpg",
+  "RWS_Tarot_14_Temperance.jpg",
+  "RWS_Tarot_15_Devil.jpg",
+  "RWS_Tarot_16_Tower.jpg",
+  "RWS_Tarot_17_Star.jpg",
+  "RWS_Tarot_18_Moon.jpg",
+  "RWS_Tarot_19_Sun.jpg",
+  "RWS_Tarot_20_Judgement.jpg",
+  "RWS_Tarot_21_World.jpg"
+];
+
 const cards = window.cardMeanings.map(({ name, number }) => ({
   name,
   number,
-  image: `images/majorarcana_${String(number).padStart(2, "0")}.jpg`
+  image: `images/${imageFiles[number]}`
 }));
 
 const deckEl = document.querySelector("#deck");
@@ -45,7 +70,7 @@ function renderDeck(cutIndex = null) {
     if (cutIndex !== null) {
       el.classList.add(i < cutIndex ? "cut-top" : "cut-bottom");
     }
-    el.style.backgroundImage = "url(images/back.jpg)";
+    el.style.backgroundImage = "url(images/Waite–Smith_Tarot_Roses_and_Lilies_cropped.jpg)";
     el.style.setProperty("--i", i);
     el.style.setProperty("--x", `${i * .9}px`);
     el.style.setProperty("--y", `${i * -.45}px`);
