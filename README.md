@@ -18,16 +18,18 @@
 
 ## 使い方
 
-`index.html` をブラウザで開くだけで使えます。
-サーバーもアカウント登録も不要です。水晶玉も不要です。
+[https://hnsol.github.io/draw-tarot/](https://hnsol.github.io/draw-tarot/)
+を開くだけで使えます。
 
-## 特徴
+アカウント登録もインストールも不要です。水晶玉も不要です。
 
-- 大アルカナ22枚から1枚をドロー
-- 任意の位置でカードを選択
-- シャッフルとドローの簡単な演出
-- カード画像と解説を表示
-- GitHub Pagesなどでそのまま公開できる静的構成
+## できること
+
+- 迷っていることを、少し違う角度から眺められます。
+- 「なんとなく」を言葉にするきっかけを作れます。
+- 1枚引きなので、短い休憩時間でも気軽に使えます。
+- カードの意味だけでなく、絵柄から連想を広げられます。
+- ブラウザだけで動くので、スマホでもPCでもすぐ試せます。
 
 ## 開発
 
@@ -35,21 +37,20 @@
 npm test
 ```
 
-## 画像とクレジット
+## タロットカード画像について
 
-カード画像は、Wikimedia Commons の
+本プロジェクトの画像は、Wikimedia Commons の
 [Vectorized Tarot by Immanuelle](https://commons.wikimedia.org/wiki/Category:Vectorized_Tarot_by_Immanuelle)
-に掲載されているパブリックドメインの Rider-Waite-Smith タロット図柄をもとにしています。
+をもとにしています。
 
-各カードページの Media Viewer から、カードスキャン画像のオリジナルサイズをダウンロードして使用しています。
-例:
-[RWS Tarot 17 Star.svg](https://commons.wikimedia.org/wiki/File:RWS_Tarot_17_Star.svg)
+- ライセンス: パブリックドメイン。Pamela Colman Smith による原画です。
+- 使用データ: 各SVGファイルページの Media Viewer から取得した、オリジナルサイズのJPG画像です。
+- 参照例: [RWS Tarot 17 Star.svg](https://commons.wikimedia.org/wiki/File:RWS_Tarot_17_Star.svg)
+- 詳細: 各画像の来歴は、Wikimedia Commons の個別ページを参照してください。
 
 Wikimedia Commons 上の表記例:
 
 > By Pamela Colman Smith - http://muzendo.jp/blog/, Public Domain, https://commons.wikimedia.org/w/index.php?curid=114011116
-
-画像はパブリックドメインです。各画像の詳細な来歴や表記は、Wikimedia Commonsの各ファイルページを参照してください。
 
 ## ライセンス
 
