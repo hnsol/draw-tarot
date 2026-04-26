@@ -112,7 +112,7 @@ assert.match(script, /Waite–Smith_Tarot_Roses_and_Lilies_cropped\.jpg/);
 assert.match(script, /resultEl\.classList\.add\("revealed"\)[\s\S]*selectedEl\.classList\.add\("drawn"\)/);
 assert.match(script, /function easeOutCubic/);
 assert.match(script, /function scrollToResult/);
-assert.match(script, /promptNote\.classList\.add\("is-hidden"\)/);
+assert.match(script, /deckEl\.classList\.add\("shuffling"\)[\s\S]*setTimeout\(\(\)\s*=>\s*promptNote\.classList\.add\("is-hidden"\),\s*260\)/);
 assert.match(script, /requestAnimationFrame\(step\)/);
 assert.match(script, /await sleep\(480\);[\s\S]*scrollToResult\(\)/);
 assert.doesNotMatch(script, /scrollIntoView/);

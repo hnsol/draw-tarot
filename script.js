@@ -114,7 +114,6 @@ function renderMeaning(card) {
 
 async function draw() {
   drawButton.disabled = true;
-  promptNote.classList.add("is-hidden");
   appEl.classList.remove("has-result");
   meaningSection.hidden = true;
   resultEl.classList.remove("revealed");
@@ -124,6 +123,7 @@ async function draw() {
   deck = shuffle(cards);
   renderDeck();
   deckEl.classList.add("shuffling");
+  setTimeout(() => promptNote.classList.add("is-hidden"), 260);
   await sleep(1200);
   deckEl.classList.remove("shuffling");
 
