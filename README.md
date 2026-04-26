@@ -11,8 +11,8 @@
 ## Screenshot
 
 <p>
-  <img src="images/screenshot_01.jpg" alt="Draw Tarot の初期画面" width="48%">
-  <img src="images/screenshot_02.jpg" alt="Draw Tarot の結果画面" width="48%">
+  <img src="assets/screenshots/screenshot_01.jpg" alt="Draw Tarot の初期画面" width="48%">
+  <img src="assets/screenshots/screenshot_02.jpg" alt="Draw Tarot の結果画面" width="48%">
 </p>
 
 ## 使い方

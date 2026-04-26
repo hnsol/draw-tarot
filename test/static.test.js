@@ -30,7 +30,7 @@ const imageFiles = [
   "RWS_Tarot_21_World.jpg"
 ];
 const images = [
-  "Waite–Smith_Tarot_Roses_and_Lilies_cropped.jpg",
+  "card-back.jpg",
   ...imageFiles
 ];
 
@@ -47,7 +47,7 @@ function identify(file) {
 }
 
 for (const image of images) {
-  const file = path.join("images", image);
+  const file = path.join("assets", "images", image);
   assert.ok(fs.existsSync(path.join(root, file)), `${file} is missing`);
   const info = identify(file);
   assert.ok(info.height > info.width, `${file} must be portrait (${info.width}x${info.height})`);
@@ -58,9 +58,9 @@ for (const image of images) {
 }
 
 const html = readText("index.html");
-assert.match(html, /href="style\.css"/);
-assert.match(html, /src="card-meanings\.js"[\s\S]*src="script\.js"/);
-assert.match(html, /src="script\.js"/);
+assert.match(html, /href="assets\/css\/style\.css"/);
+assert.match(html, /src="assets\/js\/card-meanings\.js"[\s\S]*src="assets\/js\/script\.js"/);
+assert.match(html, /src="assets\/js\/script\.js"/);
 assert.match(html, /id="meaningSection"/);
 assert.match(html, /id="promptNote"/);
 assert.match(html, /id="status"\s+aria-live="polite"><\/p>/);
@@ -80,7 +80,7 @@ assert.match(stageHtml, /id="deck"/);
 assert.match(stageHtml, /id="promptNote"/);
 assert.doesNotMatch(stageHtml, /id="result"/);
 
-const css = readText("style.css");
+const css = readText("assets/css/style.css");
 assert.match(css, /--card-ratio:\s*3\s*\/\s*5/);
 assert.match(css, /aspect-ratio:\s*var\(--card-ratio\)/);
 assert.match(css, /object-fit:\s*contain/);
@@ -107,12 +107,12 @@ assert.match(css, /\.deck\.settled \.card\s*{[\s\S]*translate\(0,\s*0\)\s*rotate
 assert.match(css, /\.card\.drawn\s*{[\s\S]*translate\(0,\s*140px\)/);
 assert.match(css, /\.card\.drawn\s*{[\s\S]*transition:\s*transform\s*\.9s\s*cubic-bezier\(\.65,\s*0,\s*1,\s*\.8\)/);
 
-const script = readText("script.js");
+const script = readText("assets/js/script.js");
 assert.match(script, /function cutDeck/);
 assert.match(script, /上下入れ替え/);
 assert.match(script, /renderMeaning/);
 assert.match(script, /RWS_Tarot_19_Sun\.jpg/);
-assert.match(script, /Waite–Smith_Tarot_Roses_and_Lilies_cropped\.jpg/);
+assert.match(script, /assets\/images\/card-back\.jpg/);
 assert.match(script, /resultEl\.classList\.add\("revealed"\)[\s\S]*selectedEl\.classList\.add\("drawn"\)/);
 assert.match(script, /function easeOutCubic/);
 assert.match(script, /function scrollToResult/);
@@ -127,7 +127,7 @@ assert.doesNotMatch(script, /scrollIntoView/);
 assert.doesNotMatch(script, /await sleep\(650\);[\s\S]*scrollIntoView/);
 assert.doesNotMatch(script, /cutMark/);
 
-const meaningCode = readText("card-meanings.js");
+const meaningCode = readText("assets/js/card-meanings.js");
 const sandbox = { window: {} };
 vm.runInNewContext(meaningCode, sandbox);
 assert.equal(sandbox.window.cardMeanings.length, 22);
@@ -144,5 +144,5 @@ sandbox.window.cardMeanings.forEach((meaning, index) => {
 });
 assert.equal(sandbox.window.cardMeanings[13].name, "死神");
 
-execFileSync("node", ["--check", path.join(root, "card-meanings.js")], { stdio: "pipe" });
-execFileSync("node", ["--check", path.join(root, "script.js")], { stdio: "pipe" });
+execFileSync("node", ["--check", path.join(root, "assets/js/card-meanings.js")], { stdio: "pipe" });
+execFileSync("node", ["--check", path.join(root, "assets/js/script.js")], { stdio: "pipe" });

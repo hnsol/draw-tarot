@@ -26,7 +26,7 @@ const imageFiles = [
 const cards = window.cardMeanings.map(({ name, number }) => ({
   name,
   number,
-  image: `images/${imageFiles[number]}`
+  image: `assets/images/${imageFiles[number]}`
 }));
 
 const deckEl = document.querySelector("#deck");
@@ -96,7 +96,7 @@ function renderDeck(cutIndex = null) {
     if (cutIndex !== null) {
       el.classList.add(i < cutIndex ? "cut-top" : "cut-bottom");
     }
-    el.style.backgroundImage = "url(images/Waite–Smith_Tarot_Roses_and_Lilies_cropped.jpg)";
+    el.style.backgroundImage = "url(assets/images/card-back.jpg)";
     el.style.setProperty("--i", i);
     el.style.setProperty("--x", `${i * .9}px`);
     el.style.setProperty("--y", `${i * -.45}px`);
