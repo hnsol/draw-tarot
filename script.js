@@ -36,6 +36,7 @@ const pickNumber = document.querySelector("#pickNumber");
 const drawButton = document.querySelector("#drawButton");
 const statusEl = document.querySelector("#status");
 const appEl = document.querySelector(".app");
+const promptNote = document.querySelector("#promptNote");
 const meaningSection = document.querySelector("#meaningSection");
 const meaningTitle = document.querySelector("#meaningTitle");
 const meaningImage = document.querySelector("#meaningImage");
@@ -113,6 +114,7 @@ function renderMeaning(card) {
 
 async function draw() {
   drawButton.disabled = true;
+  promptNote.classList.add("is-hidden");
   appEl.classList.remove("has-result");
   meaningSection.hidden = true;
   resultEl.classList.remove("revealed");
