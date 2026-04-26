@@ -112,6 +112,8 @@ assert.match(css, /\.language-switch\s*{[\s\S]*right:\s*12px/);
 assert.match(css, /\.language-switch__button\s*{[\s\S]*width:\s*82px/);
 assert.match(css, /\.language-switch__button\[aria-pressed="true"\]/);
 assert.match(css, /@media\s*\(max-width:\s*820px\)[\s\S]*\.language-switch__button\s*{[\s\S]*width:\s*74px/);
+assert.match(css, /\.app\.has-result \.language-switch\s*{[\s\S]*position:\s*static/);
+assert.match(css, /\.app\.has-result \.language-switch\s*{[\s\S]*justify-content:\s*flex-end/);
 assert.match(css, /\.stage\s*{[\s\S]*min-height:\s*min\(620px,\s*calc\(100dvh\s*-\s*150px\)\)/);
 assert.match(css, /\.deck-area\s*{[\s\S]*min-height:\s*min\(500px,\s*62dvh\)/);
 assert.match(css, /\.deck-area\s*{[\s\S]*overflow:\s*visible/);

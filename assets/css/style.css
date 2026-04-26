@@ -356,6 +356,11 @@ button:disabled {
     right: 8px;
   }
 
+  .app.has-result .language-switch {
+    position: static;
+    justify-content: flex-end;
+  }
+
   .language-switch__button {
     width: 74px;
     height: 32px;
