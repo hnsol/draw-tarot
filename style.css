@@ -136,6 +136,12 @@ body {
   margin: 0 0 6px;
 }
 
+.prompt-note__example {
+  color: #f2c36b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .prompt-note ul {
   margin: 0;
   padding: 0;
