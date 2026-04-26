@@ -95,17 +95,16 @@ async function draw() {
   const selectedEl = [...deckEl.children][nth - 1];
 
   statusEl.textContent = `上から${nth}番目`;
-  selectedEl.classList.add("drawn");
-  await sleep(650);
-
   resultImage.src = selected.image;
   resultImage.alt = `${selected.number}. ${selected.name}`;
-  statusEl.textContent = `${selected.number}. ${selected.name}`;
   renderMeaning(selected);
   resultEl.classList.add("revealed");
   appEl.classList.add("has-result");
-  await sleep(150);
+  selectedEl.classList.add("drawn");
+  await sleep(250);
   resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+  await sleep(400);
+  statusEl.textContent = `${selected.number}. ${selected.name}`;
   drawButton.disabled = false;
 }
 

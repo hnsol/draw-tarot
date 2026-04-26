@@ -66,7 +66,9 @@ const script = readText("script.js");
 assert.match(script, /function cutDeck/);
 assert.match(script, /上下入れ替え/);
 assert.match(script, /renderMeaning/);
+assert.match(script, /resultEl\.classList\.add\("revealed"\)[\s\S]*selectedEl\.classList\.add\("drawn"\)/);
 assert.match(script, /scrollIntoView\(\{\s*behavior:\s*"smooth",\s*block:\s*"start"\s*\}\)/);
+assert.doesNotMatch(script, /await sleep\(650\);[\s\S]*scrollIntoView/);
 assert.doesNotMatch(script, /cutMark/);
 
 const meaningCode = readText("card-meanings.js");
