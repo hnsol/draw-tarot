@@ -16,6 +16,13 @@ const resultImage = document.querySelector("#resultImage");
 const pickNumber = document.querySelector("#pickNumber");
 const drawButton = document.querySelector("#drawButton");
 const statusEl = document.querySelector("#status");
+const appEl = document.querySelector(".app");
+const meaningSection = document.querySelector("#meaningSection");
+const meaningTitle = document.querySelector("#meaningTitle");
+const meaningImage = document.querySelector("#meaningImage");
+const meaningPositive = document.querySelector("#meaningPositive");
+const meaningNegative = document.querySelector("#meaningNegative");
+const meaningTree = document.querySelector("#meaningTree");
 
 let deck = [...cards];
 
@@ -54,8 +61,20 @@ function renderDeck(cutIndex = null) {
   });
 }
 
+function renderMeaning(card) {
+  const meaning = window.cardMeanings[card.number];
+  meaningTitle.textContent = `${card.number}. ${card.name}`;
+  meaningImage.textContent = meaning.imageDescription;
+  meaningPositive.textContent = meaning.positiveKeywords;
+  meaningNegative.textContent = meaning.negativeKeywords;
+  meaningTree.textContent = meaning.treeOfLife;
+  meaningSection.hidden = false;
+}
+
 async function draw() {
   drawButton.disabled = true;
+  appEl.classList.remove("has-result");
+  meaningSection.hidden = true;
   resultEl.classList.remove("revealed");
   deckEl.classList.remove("cutting");
   statusEl.textContent = "シャッフル中";
@@ -88,7 +107,9 @@ async function draw() {
   resultImage.src = selected.image;
   resultImage.alt = `${selected.number}. ${selected.name}`;
   statusEl.textContent = `${selected.number}. ${selected.name}`;
+  renderMeaning(selected);
   resultEl.classList.add("revealed");
+  appEl.classList.add("has-result");
   drawButton.disabled = false;
 }
 

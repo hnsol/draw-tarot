@@ -2,6 +2,7 @@ const assert = require("node:assert");
 const { execFileSync } = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
+const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
 const images = [
@@ -34,13 +35,17 @@ for (const image of images) {
 
 const html = readText("index.html");
 assert.match(html, /href="style\.css"/);
+assert.match(html, /src="card-meanings\.js"[\s\S]*src="script\.js"/);
 assert.match(html, /src="script\.js"/);
+assert.match(html, /id="meaningSection"/);
 
 const css = readText("style.css");
 assert.match(css, /aspect-ratio:\s*2\s*\/\s*3/);
 assert.match(css, /object-fit:\s*contain/);
 assert.match(css, /\.result\.revealed/);
 assert.match(css, /z-index:\s*120/);
+assert.doesNotMatch(css, /\.result img\s*{[^}]*background:\s*rgba/);
+assert.match(css, /\.app\.has-result/);
 assert.match(css, /@media\s*\(max-width:\s*820px\)/);
 assert.match(css, /grid-template-rows:\s*minmax\(0,\s*1fr\)\s*auto/);
 assert.match(css, /max-height:\s*100svh/);
@@ -51,6 +56,19 @@ assert.match(css, /width:\s*min\(360px,\s*92vw\)/);
 const script = readText("script.js");
 assert.match(script, /function cutDeck/);
 assert.match(script, /上下入れ替え/);
+assert.match(script, /renderMeaning/);
 assert.doesNotMatch(script, /cutMark/);
 
+const meaningCode = readText("card-meanings.js");
+const sandbox = { window: {} };
+vm.runInNewContext(meaningCode, sandbox);
+assert.equal(sandbox.window.cardMeanings.length, 22);
+for (const meaning of sandbox.window.cardMeanings) {
+  assert.equal(typeof meaning.imageDescription, "string");
+  assert.equal(typeof meaning.positiveKeywords, "string");
+  assert.equal(typeof meaning.negativeKeywords, "string");
+  assert.equal(typeof meaning.treeOfLife, "string");
+}
+
+execFileSync("node", ["--check", path.join(root, "card-meanings.js")], { stdio: "pipe" });
 execFileSync("node", ["--check", path.join(root, "script.js")], { stdio: "pipe" });

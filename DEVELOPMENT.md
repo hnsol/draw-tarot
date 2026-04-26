@@ -7,6 +7,7 @@ GitHub Pagesなどで静的ホストできる、タロットカードを引くWe
 ## 現状
 
 - 構成は `index.html`、`style.css`、`script.js`、`images/`、`test/static.test.js`。
+- カード解説本文は `card-meanings.js` の `window.cardMeanings` で管理する。
 - 大アルカナ22枚と裏面画像は `images/` に配置済み。
 - 画像はファイル側で縦向きに正規化済み。
 - カットは「カードを任意の位置で上下に入れ替える」動作。
@@ -25,6 +26,7 @@ npm test
 - 画像orientationが正規化済み
 - HTMLのCSS/JS参照
 - CSSの主要レイアウト指定
+- カード解説データ22枚分の存在と項目
 - JS構文
 
 ## 注意
