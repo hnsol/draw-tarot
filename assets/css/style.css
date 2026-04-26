@@ -280,7 +280,7 @@ button:disabled {
     max-height: 100svh;
     padding: 6px;
     align-content: start;
-    grid-template-rows: minmax(0, calc(100svh - 70px)) auto;
+    grid-template-rows: minmax(0, calc(100svh - 96px)) auto;
     gap: 8px;
     overflow: hidden;
   }
@@ -297,12 +297,12 @@ button:disabled {
   }
 
   .deck-area {
-    min-height: min(440px, 56svh);
+    min-height: min(390px, 49svh);
     overflow: hidden;
   }
 
   .deck {
-    width: min(205px, 54vw);
+    width: min(190px, 50vw);
   }
 
   .card.drawn {
