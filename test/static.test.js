@@ -87,6 +87,7 @@ assert.match(css, /\.prompt-note\s*{/);
 assert.match(css, /\.prompt-note__example\s*{/);
 assert.match(css, /background:\s*rgba\(21,\s*18,\s*15,\s*\.62\)/);
 assert.match(css, /backdrop-filter:\s*blur\(3px\)/);
+assert.match(css, /transition:\s*opacity\s*\.7s\s*ease,\s*transform\s*\.7s\s*ease,\s*visibility\s*\.7s\s*ease/);
 assert.match(css, /\.prompt-note ul\s*{/);
 assert.match(css, /\.prompt-note\.is-hidden\s*{/);
 assert.match(css, /z-index:\s*120/);
