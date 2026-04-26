@@ -292,12 +292,12 @@ button:disabled {
 
   .stage {
     grid-template-columns: 1fr;
-    min-height: min(560px, calc(100dvh - 190px));
+    min-height: min(620px, calc(100dvh - 150px));
   }
 
   .deck-area {
-    min-height: min(390px, 48dvh);
-    overflow: hidden;
+    min-height: min(500px, 62dvh);
+    overflow: visible;
   }
 
   .deck {
