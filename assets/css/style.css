@@ -276,13 +276,11 @@ button:disabled {
   }
 
   .app {
-    height: 90dvh;
-    max-height: 90dvh;
-    padding: 42px 8px max(10px, env(safe-area-inset-bottom));
-    align-content: start;
-    grid-template-rows: minmax(0, 1fr) auto;
+    min-height: 100dvh;
+    padding: 42px 8px calc(128px + env(safe-area-inset-bottom));
+    align-content: center;
     gap: 8px;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .app.has-result {
@@ -293,11 +291,11 @@ button:disabled {
 
   .stage {
     grid-template-columns: 1fr;
-    min-height: 0;
+    min-height: min(560px, calc(100dvh - 190px));
   }
 
   .deck-area {
-    min-height: min(410px, 50dvh);
+    min-height: min(390px, 48dvh);
     overflow: hidden;
   }
 
@@ -315,6 +313,11 @@ button:disabled {
   }
 
   .controls {
+    position: fixed;
+    left: 8px;
+    right: 8px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 190;
     gap: 10px;
     padding-top: 0;
     padding-bottom: 0;
