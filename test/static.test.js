@@ -38,6 +38,14 @@ assert.match(html, /href="style\.css"/);
 assert.match(html, /src="card-meanings\.js"[\s\S]*src="script\.js"/);
 assert.match(html, /src="script\.js"/);
 assert.match(html, /id="meaningSection"/);
+const stageStart = html.indexOf('class="stage"');
+const controlsStart = html.indexOf('class="controls"');
+const resultStart = html.indexOf('id="result"');
+const meaningStart = html.indexOf('id="meaningSection"');
+const stageHtml = html.slice(stageStart, controlsStart);
+assert.ok(stageStart < controlsStart && controlsStart < resultStart && resultStart < meaningStart);
+assert.match(stageHtml, /id="deck"/);
+assert.doesNotMatch(stageHtml, /id="result"/);
 
 const css = readText("style.css");
 assert.match(css, /aspect-ratio:\s*2\s*\/\s*3/);
@@ -49,9 +57,9 @@ assert.match(css, /\.app\.has-result/);
 assert.match(css, /@media\s*\(max-width:\s*820px\)/);
 assert.match(css, /grid-template-rows:\s*minmax\(0,\s*1fr\)\s*auto/);
 assert.match(css, /max-height:\s*100svh/);
-assert.match(css, /min-height:\s*16svh/);
-assert.match(css, /height:\s*62svh/);
-assert.match(css, /width:\s*min\(360px,\s*92vw\)/);
+assert.match(css, /\.deck-area\s*{[\s\S]*min-height:\s*min\(520px,\s*68svh\)/);
+assert.match(css, /\.result\s*{[\s\S]*min-height:\s*auto/);
+assert.match(css, /height:\s*min\(620px,\s*76svh\)/);
 
 const script = readText("script.js");
 assert.match(script, /function cutDeck/);

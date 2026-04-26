@@ -33,17 +33,23 @@ body {
   position: relative;
   min-height: min(680px, calc(100vh - 120px));
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr;
   align-items: center;
 }
 
-.deck-area,
-.result {
+.deck-area {
   position: relative;
   min-height: 470px;
   display: grid;
   place-items: center;
+}
+
+.result {
+  position: relative;
+  min-height: auto;
+  display: none;
+  place-items: center;
+  padding: 18px 0 6px;
 }
 
 .deck {
@@ -82,7 +88,7 @@ body {
 
 .card.drawn {
   z-index: 120;
-  transform: translate(330px, 0) rotate(0deg) scale(1.08);
+  transform: translate(0, -8px) rotate(0deg) scale(1.08);
 }
 
 .result img {
@@ -97,6 +103,7 @@ body {
 }
 
 .result.revealed {
+  display: grid;
   z-index: 120;
 }
 
@@ -222,28 +229,25 @@ button:disabled {
 
   .stage {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, .42fr) minmax(0, 1.58fr);
-    gap: 2px;
     min-height: 0;
   }
 
-  .deck-area,
-  .result {
-    min-height: 16svh;
+  .deck-area {
+    min-height: min(520px, 68svh);
     overflow: hidden;
   }
 
   .deck {
-    width: min(112px, 30vw);
+    width: min(210px, 56vw);
   }
 
   .card.drawn {
-    transform: translate(0, 18svh) rotate(0deg) scale(1.02);
+    transform: translate(0, -8px) rotate(0deg) scale(1.04);
   }
 
   .result img {
     width: min(360px, 92vw);
-    height: 62svh;
+    height: min(620px, 76svh);
   }
 
   .controls {
