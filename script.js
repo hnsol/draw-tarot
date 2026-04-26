@@ -101,7 +101,7 @@ async function draw() {
   resultEl.classList.add("revealed");
   appEl.classList.add("has-result");
   selectedEl.classList.add("drawn");
-  await sleep(360);
+  await sleep(480);
   resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
   await sleep(520);
   statusEl.textContent = `${selected.number}. ${selected.name}`;
