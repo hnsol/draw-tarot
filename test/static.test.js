@@ -72,7 +72,8 @@ assert.match(stageHtml, /id="deck"/);
 assert.doesNotMatch(stageHtml, /id="result"/);
 
 const css = readText("style.css");
-assert.match(css, /aspect-ratio:\s*2\s*\/\s*3/);
+assert.match(css, /--card-ratio:\s*3\s*\/\s*5/);
+assert.match(css, /aspect-ratio:\s*var\(--card-ratio\)/);
 assert.match(css, /object-fit:\s*contain/);
 assert.match(css, /\.result\.revealed/);
 assert.match(css, /z-index:\s*120/);
@@ -83,7 +84,8 @@ assert.match(css, /grid-template-rows:\s*minmax\(0,\s*1fr\)\s*auto/);
 assert.match(css, /max-height:\s*100svh/);
 assert.match(css, /\.deck-area\s*{[\s\S]*min-height:\s*min\(460px,\s*58svh\)/);
 assert.match(css, /\.result\s*{[\s\S]*min-height:\s*auto/);
-assert.match(css, /height:\s*min\(620px,\s*76svh\)/);
+assert.match(css, /width:\s*min\(340px,\s*90vw,\s*calc\(76svh\s*\*\s*3\s*\/\s*5\)\)/);
+assert.match(css, /max-height:\s*76svh/);
 assert.match(css, /\.card\.drawn\s*{[\s\S]*translate\(0,\s*140px\)/);
 assert.match(css, /\.card\.drawn\s*{[\s\S]*transition:\s*transform\s*\.9s\s*cubic-bezier\(\.65,\s*0,\s*1,\s*\.8\)/);
 
