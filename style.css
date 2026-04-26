@@ -117,11 +117,11 @@ body {
 .prompt-note {
   position: absolute;
   z-index: 80;
-  width: min(360px, 84vw);
-  padding: 14px 16px;
+  width: min(390px, 88vw);
+  padding: 16px 18px;
   color: #f4efe5;
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.6;
   text-align: center;
   background: rgba(21, 18, 15, .62);
   border: 1px solid rgba(255, 255, 255, .18);
@@ -138,7 +138,7 @@ body {
 
 .prompt-note__example {
   color: #f2c36b;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -299,10 +299,10 @@ button:disabled {
   }
 
   .prompt-note {
-    font-size: 12px;
-    line-height: 1.45;
-    width: min(330px, 88vw);
-    padding: 10px 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    width: min(360px, 90vw);
+    padding: 13px 14px;
   }
 
   .prompt-note p {
