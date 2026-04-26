@@ -1,0 +1,96 @@
+const names = [
+  "愚者", "魔術師", "女教皇", "女帝", "皇帝", "教皇", "恋人", "戦車",
+  "力", "隠者", "運命の輪", "正義", "吊された男", "死神", "節制",
+  "悪魔", "塔", "星", "月", "太陽", "審判", "世界"
+];
+
+const cards = names.map((name, index) => ({
+  name,
+  number: index,
+  image: `images/majorarcana_${String(index).padStart(2, "0")}.jpg`
+}));
+
+const deckEl = document.querySelector("#deck");
+const resultEl = document.querySelector("#result");
+const resultImage = document.querySelector("#resultImage");
+const pickNumber = document.querySelector("#pickNumber");
+const drawButton = document.querySelector("#drawButton");
+const statusEl = document.querySelector("#status");
+
+let deck = [...cards];
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function shuffle(list) {
+  const next = [...list];
+  for (let i = next.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [next[i], next[j]] = [next[j], next[i]];
+  }
+  return next;
+}
+
+function cutDeck(list, index) {
+  return [...list.slice(index), ...list.slice(0, index)];
+}
+
+function renderDeck(cutIndex = null) {
+  deckEl.innerHTML = "";
+  deck.forEach((card, i) => {
+    const el = document.createElement("div");
+    el.className = "card";
+    if (cutIndex !== null) {
+      el.classList.add(i < cutIndex ? "cut-top" : "cut-bottom");
+    }
+    el.style.backgroundImage = "url(images/back.jpg)";
+    el.style.setProperty("--i", i);
+    el.style.setProperty("--x", `${i * .9}px`);
+    el.style.setProperty("--y", `${i * -.45}px`);
+    el.style.setProperty("--r", `${(i - 11) * .18}deg`);
+    el.dataset.number = card.number;
+    deckEl.append(el);
+  });
+}
+
+async function draw() {
+  drawButton.disabled = true;
+  resultEl.classList.remove("revealed");
+  deckEl.classList.remove("cutting");
+  statusEl.textContent = "シャッフル中";
+
+  deck = shuffle(cards);
+  renderDeck();
+  deckEl.classList.add("shuffling");
+  await sleep(1200);
+  deckEl.classList.remove("shuffling");
+
+  const cutIndex = 1 + Math.floor(Math.random() * (deck.length - 1));
+  statusEl.textContent = `カット: ${cutIndex}枚目で上下入れ替え`;
+  renderDeck(cutIndex);
+  deckEl.classList.add("cutting");
+  await sleep(900);
+  deck = cutDeck(deck, cutIndex);
+  deckEl.classList.remove("cutting");
+  renderDeck();
+  await sleep(250);
+
+  const nth = Math.min(Math.max(Number(pickNumber.value) || 1, 1), 22);
+  pickNumber.value = nth;
+  const selected = deck[nth - 1];
+  const selectedEl = [...deckEl.children][nth - 1];
+
+  statusEl.textContent = `上から${nth}番目`;
+  selectedEl.classList.add("drawn");
+  await sleep(650);
+
+  resultImage.src = selected.image;
+  resultImage.alt = `${selected.number}. ${selected.name}`;
+  statusEl.textContent = `${selected.number}. ${selected.name}`;
+  resultEl.classList.add("revealed");
+  drawButton.disabled = false;
+}
+
+renderDeck();
+drawButton.addEventListener("click", draw);
