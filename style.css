@@ -174,37 +174,49 @@ button:disabled {
   }
 
   .app {
-    min-height: 100svh;
-    padding: 12px;
+    height: 100svh;
+    max-height: 100svh;
+    padding: 10px;
     align-content: start;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 8px;
+    overflow: hidden;
   }
 
   .stage {
     grid-template-columns: 1fr;
-    gap: 8px;
-    min-height: auto;
+    grid-template-rows: minmax(0, .62fr) minmax(0, 1.38fr);
+    gap: 4px;
+    min-height: 0;
   }
 
   .deck-area,
   .result {
-    min-height: 38svh;
+    min-height: 22svh;
+    overflow: hidden;
   }
 
   .deck {
-    width: min(168px, 44vw);
+    width: min(132px, 36vw);
   }
 
   .card.drawn {
-    transform: translate(0, 34svh) rotate(0deg) scale(1.04);
+    transform: translate(0, 23svh) rotate(0deg) scale(1.02);
   }
 
   .result img {
-    width: min(260px, 68vw);
+    width: min(300px, 76vw);
+    height: 52svh;
   }
 
   .controls {
     gap: 10px;
-    padding-top: 6px;
+    padding-top: 0;
+  }
+
+  label,
+  #status {
+    font-size: 14px;
   }
 
   button {
