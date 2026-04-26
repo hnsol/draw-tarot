@@ -286,6 +286,7 @@ button:disabled {
   .app.has-result {
     height: auto;
     max-height: none;
+    padding-bottom: 6px;
     overflow-y: auto;
   }
 
@@ -321,6 +322,14 @@ button:disabled {
     gap: 10px;
     padding-top: 0;
     padding-bottom: 0;
+  }
+
+  .app.has-result .controls {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    z-index: auto;
   }
 
   .prompt-note {
