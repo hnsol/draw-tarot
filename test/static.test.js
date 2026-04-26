@@ -59,7 +59,7 @@ for (const image of images) {
 
 const html = readText("index.html");
 assert.match(html, /href="assets\/css\/style\.css"/);
-assert.match(html, /src="assets\/js\/card-meanings\.js"[\s\S]*src="assets\/js\/script\.js"/);
+assert.match(html, /src="assets\/js\/card-meanings\.js"[\s\S]*src="assets\/js\/card-meanings\.en\.js"[\s\S]*src="assets\/js\/script\.js"/);
 assert.match(html, /src="assets\/js\/script\.js"/);
 assert.match(html, /id="meaningSection"/);
 assert.match(html, /id="promptNote"/);
@@ -122,8 +122,8 @@ assert.match(script, /resultEl\.classList\.add\("revealed"\)[\s\S]*selectedEl\.c
 assert.match(script, /function easeOutCubic/);
 assert.match(script, /function scrollToResult/);
 assert.match(script, /const translations =/);
-assert.match(script, /const englishCardMeanings =/);
 assert.match(script, /function setLanguage/);
+assert.match(script, /window\.cardMeaningsEn/);
 assert.match(script, /localStorage\.setItem\("drawTarotLanguage", lang\)/);
 assert.match(script, /document\.documentElement\.lang = lang/);
 assert.match(script, /Hold one question in mind, then draw a card\./);
@@ -155,5 +155,22 @@ sandbox.window.cardMeanings.forEach((meaning, index) => {
 });
 assert.equal(sandbox.window.cardMeanings[13].name, "死神");
 
+const englishMeaningCode = readText("assets/js/card-meanings.en.js");
+vm.runInNewContext(englishMeaningCode, sandbox);
+assert.equal(sandbox.window.cardMeaningsEn.length, 22);
+for (const meaning of sandbox.window.cardMeaningsEn) {
+  assert.equal(typeof meaning.number, "number");
+  assert.equal(typeof meaning.name, "string");
+  assert.equal(typeof meaning.imageDescription, "string");
+  assert.equal(typeof meaning.positiveKeywords, "string");
+  assert.equal(typeof meaning.negativeKeywords, "string");
+  assert.equal(typeof meaning.treeOfLife, "string");
+}
+sandbox.window.cardMeaningsEn.forEach((meaning, index) => {
+  assert.equal(meaning.number, index);
+});
+assert.equal(sandbox.window.cardMeaningsEn[13].name, "Death");
+
 execFileSync("node", ["--check", path.join(root, "assets/js/card-meanings.js")], { stdio: "pipe" });
+execFileSync("node", ["--check", path.join(root, "assets/js/card-meanings.en.js")], { stdio: "pipe" });
 execFileSync("node", ["--check", path.join(root, "assets/js/script.js")], { stdio: "pipe" });

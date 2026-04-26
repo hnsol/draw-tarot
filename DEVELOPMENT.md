@@ -38,6 +38,7 @@
 - 本文は後から差し替えやすい形を保つ。
 - カード番号と名称も解説データ側で管理する。
 - 画面文言、カード解説、READMEを変更するときは、日本語版と英語版を同時にメンテナンスする。
+- カード解説は日本語を `assets/js/card-meanings.js`、英語を `assets/js/card-meanings.en.js` に分けて管理する。
 - READMEは `README.md` と `README.en.md` の相互リンクを保つ。
 
 ## テストと運用
