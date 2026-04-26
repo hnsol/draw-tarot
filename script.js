@@ -55,20 +55,24 @@ function easeOutCubic(t) {
 }
 
 function scrollToResult() {
-  const start = window.scrollY;
-  const end = start + resultEl.getBoundingClientRect().top;
-  const duration = 780;
-  const startedAt = performance.now();
+  return new Promise(resolve => {
+    const start = window.scrollY;
+    const end = start + resultEl.getBoundingClientRect().top;
+    const duration = 780;
+    const startedAt = performance.now();
 
-  function step(now) {
-    const progress = Math.min((now - startedAt) / duration, 1);
-    window.scrollTo(0, start + (end - start) * easeOutCubic(progress));
-    if (progress < 1) {
-      requestAnimationFrame(step);
+    function step(now) {
+      const progress = Math.min((now - startedAt) / duration, 1);
+      window.scrollTo(0, start + (end - start) * easeOutCubic(progress));
+      if (progress < 1) {
+        requestAnimationFrame(step);
+        return;
+      }
+      resolve();
     }
-  }
 
-  requestAnimationFrame(step);
+    requestAnimationFrame(step);
+  });
 }
 
 function shuffle(list) {
@@ -117,7 +121,7 @@ async function draw() {
   appEl.classList.remove("has-result");
   meaningSection.hidden = true;
   resultEl.classList.remove("revealed");
-  deckEl.classList.remove("cutting");
+  deckEl.classList.remove("cutting", "settled");
   statusEl.textContent = "シャッフル中";
 
   deck = shuffle(cards);
@@ -150,8 +154,10 @@ async function draw() {
   appEl.classList.add("has-result");
   selectedEl.classList.add("drawn");
   await sleep(480);
-  scrollToResult();
-  await sleep(520);
+  await scrollToResult();
+  deck = deck.filter((_, i) => i !== nth - 1);
+  renderDeck();
+  deckEl.classList.add("settled");
   statusEl.textContent = `${selected.number}. ${selected.name}`;
   drawButton.disabled = false;
 }

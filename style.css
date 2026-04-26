@@ -87,6 +87,10 @@ body {
   transform: translate(84px, 36px) rotate(5deg);
 }
 
+.deck.settled .card {
+  transform: translate(0, 0) rotate(0deg);
+}
+
 .card.drawn {
   z-index: 120;
   transform: translate(0, 140px) rotate(0deg) scale(1.08);
