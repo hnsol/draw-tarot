@@ -30,6 +30,26 @@ body {
   gap: 14px;
 }
 
+.language-switch {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.language-switch__button {
+  width: auto;
+  height: 34px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, .08);
+  color: #f4efe5;
+  font-size: 13px;
+}
+
+.language-switch__button[aria-pressed="true"] {
+  background: #d7a34b;
+  color: #1d1308;
+}
+
 .stage {
   position: relative;
   min-height: min(680px, calc(100vh - 120px));
@@ -257,7 +277,7 @@ button:disabled {
     max-height: 100svh;
     padding: 6px;
     align-content: start;
-    grid-template-rows: minmax(0, calc(100svh - 70px)) auto;
+    grid-template-rows: auto minmax(0, calc(100svh - 110px)) auto;
     gap: 8px;
     overflow: hidden;
   }
@@ -314,6 +334,10 @@ button:disabled {
 
   button {
     width: min(100%, 320px);
+  }
+
+  .language-switch__button {
+    width: auto;
   }
 
   .meaning {
