@@ -114,6 +114,26 @@ body {
   transform: translateY(0) scale(1);
 }
 
+.prompt-note {
+  width: min(680px, 100%);
+  margin: 0 auto;
+  color: #d8cfc2;
+  font-size: 14px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.prompt-note p {
+  margin: 0 0 6px;
+}
+
+.prompt-note ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #bfb4a6;
+}
+
 .controls {
   display: flex;
   align-items: center;
@@ -255,6 +275,15 @@ button:disabled {
   .controls {
     gap: 10px;
     padding-top: 0;
+  }
+
+  .prompt-note {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .prompt-note p {
+    margin-bottom: 4px;
   }
 
   label,
